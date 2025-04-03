@@ -1,0 +1,60 @@
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_3_7_1_mk_axis_modal_velocity"><em>3.7.1 MK_AXIS_MODAL_VELOCITY</em></a></li>
+<li><a href="#_3_7_2_mk_axis_velocity"><em>3.7.2 MK_AXIS_VELOCITY</em></a></li>
+<li><a href="#_3_7_3_mk_axis_acceleration"><em>3.7.3 MK_AXIS_ACCELERATION</em></a></li>
+<li><a href="#_3_7_4_mk_axis_deceleration"><em>3.7.4 MK_AXIS_DECELERATION</em></a></li>
+<li><a href="#_3_7_5_mk_axis_ramp_time"><em>3.7.5 MK_AXIS_RAMP_TIME</em></a></li>
+</ul>
+</div>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Select Axis parameters and choose Speed &amp; acceleration settings,</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="img/image17.png" alt="Graphical user interface Description automatically generated" width="539" height="432"></span></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_3_7_1_mk_axis_modal_velocity"><em>3.7.1 MK_AXIS_MODAL_VELOCITY</em></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>It is the maximum speed for manual operation (jog keys) of the individual axes. The specified value is limited to MK_AXIS_VELOCITY.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_3_7_2_mk_axis_velocity"><em>3.7.2 MK_AXIS_VELOCITY</em></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>It is the maximum permitted speed of the individual axes in [m/min] or [RPM]. This corresponds to the rapid movement speed of the axes in the straight cut mode. If possible, the movement speed in path operation is also limited by the controller, so that the maximum speed of the individual axes is not exceeded.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_3_7_3_mk_axis_acceleration"><em>3.7.3 MK_AXIS_ACCELERATION</em></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>It defines the maximum acceleration and braking ramps for the individual axes in [m /s2] or [1/s2]. In path operation, the path ramps are limited in relation to the component involvement of the individual axes.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_3_7_4_mk_axis_deceleration"><em>3.7.4 MK_AXIS_DECELERATION</em></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>It defines the maximum braking ramps for the individual axes in [m /s2] or [1/s2]. In path operation, the path ramps are limited in relation to the component involvement of the individual axes.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_3_7_5_mk_axis_ramp_time"><em>3.7.5 MK_AXIS_RAMP_TIME</em></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>It is the time in milliseconds, in which the maximum ramps configured in <strong>MK_AXIS_ACCELERATION and MK_AXIS_DECELERATION</strong> for manual operation and straight cut mode operation should be reached. This MC is for setting of acceleration and braking ramps of the individual axes.</p>
+</div>
+</div>
+</div>

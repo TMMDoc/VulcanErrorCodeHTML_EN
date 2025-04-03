@@ -1,0 +1,27 @@
+<div class="paragraph">
+<p>In PLC options, Select function parameters to access machine miscellaneous control.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="img/image33.png" alt="image33" width="614" height="495"></span></p>
+</div>
+<div class="paragraph">
+<p><em>5.8.1 External Start Stop</em>
+- Activates the External Start Stop button and deactivates the HMI Start Stop button
+<em>5.8.2 Mode Selection via External keys</em>
+- Enables the mode selection (Jog, Program, Auto, etc.,) via the external key. But for Vulcan, this function disabled.
+<em>5.8.3 Z-axis Dynamic Enable bit</em>
+- Z-axis is the vertical axis and at idle condition to hold its position it draws more current, which may heat up the motor.
+Enabling this function will disable the power of Z-axis at idle condition and brake is enabled, thereby heating of the motor is reduced. When there is a motion command to the Z-axis, it automatically enables and start the motion.
+<em>5.8.4 Activate Exhaust System</em>
+- Enables the Exhaust system function in the PLC
+<em>5.8.5 Activate Sheet Edge Function</em>
+- Enables the Sheet Edge function to determine the sheet origin point and orientation of sheet with respect to machine axis. Accordingly, the program is adjusted to sheet orientation and start cutting.
+<em>5.8.6 Auto Lub Activate</em>
+- Enables the Auto Lubrication cycle, which will run the Lubrication program when reaches the specified time
+<em>5.8.7 Auto Chip Conveyor Activate</em>
+- Enables the chip conveyor motion at the start of the program if the Laser is ON.
+<em>5.8.8 Auto Exhaust Activate</em>
+- Enables the Exhaust system at the start of the program if the Laser is ON.
+<em>5.8.9 Enable Park Position at program end.</em>
+- Enables the axes to move to park position at the end of program.</p>
+</div>

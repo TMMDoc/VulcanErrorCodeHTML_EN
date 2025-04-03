@@ -1,0 +1,181 @@
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_5_2_1_oil_lub_cycle_time"><em>5.2.1 Oil Lub Cycle Time</em></a></li>
+<li><a href="#_5_2_2_grease_lub_cycle_time"><em>5.2.2 Grease Lub Cycle Time</em></a></li>
+<li><a href="#_5_2_3_chip_conveyor_time"><em>5.2.3 Chip Conveyor Time</em></a></li>
+<li><a href="#_5_2_4_laser_cutting_head_type"><em>5.2.4 Laser Cutting Head Type</em></a></li>
+<li><a href="#_5_2_5_laser_type"><em>5.2.5 Laser Type</em></a></li>
+<li><a href="#_5_2_6_delay_for_stop_button_pause_program"><em>5.2.6 Delay for stop button - Pause program</em></a></li>
+<li><a href="#_5_2_7_delay_for_stop_button_abort_program"><em>5.2.7 Delay for stop button - Abort program</em></a></li>
+<li><a href="#_5_2_8_machine_origin_point_left_right_up_down"><em>5.2.8 Machine Origin Point Left, Right, Up, Down</em></a></li>
+<li><a href="#_5_2_9_used_to_define_the_jog_keys"><em>5.2.9 Used to define the Jog keys</em></a></li>
+<li><a href="#_5_2_10_used_to_define_the_override_keys"><em>5.2.10 Used to define the Override keys</em></a></li>
+</ul>
+</div>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>In PLC options, select function parameters to access miscellaneous.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="img/image28.png" alt="Graphical user interface Description automatically generated" width="542" height="454"></span></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_5_2_1_oil_lub_cycle_time"><em>5.2.1 Oil Lub Cycle Time</em></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>This defines the interval of Oil lubrication cycle to be carried out in the machine before start of the program.
+If this value is &gt; 0, then the Oil cycle function will be activated in the PLC.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_5_2_2_grease_lub_cycle_time"><em>5.2.2 Grease Lub Cycle Time</em></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>This defines the interval of Grease lubrication cycle to be carried out in the machine before start of the program.
+If this value is &gt; 0, then the Grease cycle function will be activated in the PLC.
+Note: if both Oil &amp; Grease cycle time are &gt; 0, then the Cycle program will be activated based on the maximum time of Oil &amp; Grease lub cycle.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_5_2_3_chip_conveyor_time"><em>5.2.3 Chip Conveyor Time</em></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>This defines the maximum time of Chip conveyor motion.
+If activated via external key, the Chip Conveyor will run for this defined time &amp; stop.
+If activated by the start of program, then after the completion of program, it will run for this time &amp; stop.
+If this value is &gt; 0, then the Chip Conveyor function will be activated in the PLC.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_5_2_4_laser_cutting_head_type"><em>5.2.4 Laser Cutting Head Type</em></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Following are the list of Cutting Head Type supported in the PLC:
+00 : No Head
+01 : Precitec
+02 : Procutter EG8030
+03: Procutter2.0 EG8050
+Select the appropriate head used in the machine and accordingly the PLC function will be activated.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_5_2_5_laser_type"><em>5.2.5 Laser Type</em></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Following are the list of Laser Type supported in the PLC:
+00 : No Laser Source
+01 : IPG_YLS Laser
+02 : GSI Laser
+03 : Rofin Laser
+04 : IPG_YLM Laser
+05 : IPG_YLR Laser
+06 : nLight Laser
+07 : Raycus Laser
+08 : Trumpf Laser
+09 : SPI Laser
+Select the appropriate laser used in the machine and accordingly the PLC function will be activated.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_5_2_6_delay_for_stop_button_pause_program"><em>5.2.6 Delay for stop button - Pause program</em></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>This defines the delay time of Stop button (1<sup>st</sup> press) to pause the program. If the input exists more than this delay time, then the program is paused.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_5_2_7_delay_for_stop_button_abort_program"><em>5.2.7 Delay for stop button - Abort program</em></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>This defines the delay time of Stop button (2<sup>nd</sup> press) to abort the program. If the input exists more than this delay time, then the program is aborted.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_5_2_8_machine_origin_point_left_right_up_down"><em>5.2.8 Machine Origin Point Left, Right, Up, Down</em></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>-</strong> This defines the origin point of the Machine with axis direction definition as follows:
+0 : X-, X+ &amp; Y+, Y-
+1 : X-, X+ &amp; Y-, Y+
+2 : X+, X- &amp; Y-, Y+
+4 : X+, X- &amp; Y+, Y-
+8 : Y+, Y- &amp; X+, X-
+16 : Y+, Y- &amp; X-, X+
+32 : Y-, Y+ &amp; X-, X+
+64 : Y-, Y+ &amp; X+, X-</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_5_2_9_used_to_define_the_jog_keys"><em>5.2.9 Used to define the Jog keys</em></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Following are the options of Jog Keys assignment:
+0 : HMI keys – will use the HMI keys to jog the axis
+1 : External Axis Sel &amp; Jog keys – Axis selection &amp; jog keys are used in Machine control panel
+2 : External XY Jog keys – X+ X- / Y+ Y- key assignment
+According to the above selection, the Jog key function is activated in the PLC.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_5_2_10_used_to_define_the_override_keys"><em>5.2.10 Used to define the Override keys</em></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Following are the options of Override Keys assignment:
+0 : HMI – will use the HMI Override keys
+1 : Rotary Switch (Gray Code) – Override values depends on the position of rotary switch
+2 : Potentiometer – Override values depends on the potentiometer analogue input
+3 : Encoder – Override values depends on the encoder position
+4 : Buttons – Override - &amp; Override +; buttons to change the override values
+According to the above selection, the Override key function is activated in the PLC.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>

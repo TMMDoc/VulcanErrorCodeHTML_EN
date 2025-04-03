@@ -1,0 +1,89 @@
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_3_5_1_mk_axis_software_limit_negative"><em>3.5.1 MK_AXIS_SOFTWARE_LIMIT_NEGATIVE</em></a></li>
+<li><a href="#_3_5_2_mk_axis_software_limit_positive"><em>3.5.2 MK_AXIS_SOFTWARE_LIMIT_POSITIVE</em></a></li>
+<li><a href="#_3_5_3_mk_axis_lag_distance_error_limit"><em>3.5.3 MK_AXIS_LAG_DISTANCE_ERROR_LIMIT</em></a></li>
+<li><a href="#_3_5_4_mk_axis_lag_count_error_limit"><em>3.5.4 MK_AXIS_LAG COUNT_ERROR_LIMIT</em></a></li>
+<li><a href="#_3_5_5_mk_axis_exact_stop_lag_window"><em>3.5.5 MK_AXIS_EXACT_STOP_LAG_WINDOW</em></a></li>
+<li><a href="#_3_5_6_mk_axis_exact_stop_time_window"><em>3.5.6 MK_AXIS_EXACT_STOP_TIME_WINDOW</em></a></li>
+</ul>
+</div>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Select Axis parameters and choose Monitoring settings,</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="img/image15.png" alt="Graphical user interface Description automatically generated" width="450" height="282"></span></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_3_5_1_mk_axis_software_limit_negative"><em>3.5.1 MK_AXIS_SOFTWARE_LIMIT_NEGATIVE</em></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>It defines the <strong>negative machine travel limit</strong> for the mechanical parts. The units for linear axes are millimeters and for rotation axes, degrees. The monitoring must be switched on with G26. See also MK_CFG_PRESETS. The value is referenced to the machine zero point and not to the zero point of the position measuring system.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_3_5_2_mk_axis_software_limit_positive"><em>3.5.2 MK_AXIS_SOFTWARE_LIMIT_POSITIVE</em></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>It defines the <strong>positive machine travel limit</strong> for the mechanical parts. The units for linear axes are millimeters and for rotation axes, degrees. The monitoring must be switched on with G26. See also MK_CFG_PRESETS. The value is referenced to the machine zero point and not to the zero point of the position measuring system.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_3_5_3_mk_axis_lag_distance_error_limit"><em>3.5.3 MK_AXIS_LAG_DISTANCE_ERROR_LIMIT</em></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 76%;">
+<col style="width: 24%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>MK</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Unit</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MK_AXIS_LAG_DISTANCE_ERROR_LIMIT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Input units</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>It defines the limit for axes with analog interface, above which the axis computer software recognizes "contouring error". The value entered here must be at least as large as the theoretical trailing distance to be set for Vmax.
+The maximum value is 32767 or the corresponding value in input units (preset).</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_3_5_4_mk_axis_lag_count_error_limit"><em>3.5.4 MK_AXIS_LAG COUNT_ERROR_LIMIT</em></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>It is the number of immediate consecutive regulation cycles for axes with analog interface, which must be exceeded by the trailing distance until a contouring error is recognized.
+The standard setting is recognition of the first contouring error (1).</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_3_5_5_mk_axis_exact_stop_lag_window"><em>3.5.5 MK_AXIS_EXACT_STOP_LAG_WINDOW</em></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>It defines the limit value of the control deviation of the individual axes for in-position programming with position lag monitoring in [mm] or [degrees]. This function must be activated with G60.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_3_5_6_mk_axis_exact_stop_time_window"><em>3.5.6 MK_AXIS_EXACT_STOP_TIME_WINDOW</em></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>It defines the time in seconds, within which the trailing distance value of an axis must remain below the value configured in MK_AXIS_EXACT_STOP_LAG_WINDOW before the next function can be executed. This MC is only effective if the exact stop function is activated with trailing distance monitoring. The default value is 0.</p>
+</div>
+</div>
+</div>

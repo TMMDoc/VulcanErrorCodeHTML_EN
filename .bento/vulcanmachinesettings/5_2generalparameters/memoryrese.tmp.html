@@ -1,0 +1,48 @@
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_2_3_1_mk_nc_lookahead_block_count"><em>2.3.1 MK_NC_LOOKAHEAD_BLOCK_COUNT</em></a></li>
+<li><a href="#_2_3_2_mk_nc_path_reverse_block_count"><em>2.3.2 MK_NC_PATH_REVERSE_BLOCK_COUNT</em></a></li>
+<li><a href="#_2_3_3_mk_cfg_parameter_array_size"><em>2.3.3 MK_CFG_PARAMETER_ARRAY_SIZE</em></a></li>
+</ul>
+</div>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>In General parameters, Select Machine settings to access Memory reservation settings</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="img/image6.png" alt="Graphical user interface Description automatically generated" width="524" height="245"></span></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2_3_1_mk_nc_lookahead_block_count"><em>2.3.1 MK_NC_LOOKAHEAD_BLOCK_COUNT</em></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>It defines the <strong>maximum number of instructions in the search buffer</strong>. The search buffer ring buffer (FIFO) between DIN interpreter and coarse interpolator and provides for decoupling of interpretation and execution of DIN blocks. This MC influences the number of blocks affected by the look ahead function in processing a DIN program.
+The MC contains a parameter for each possible NC channel. The minimum value for this MC is 8 blocks. The preset value depends upon the memory configuration of the CPU. The entered value should be a binary power (8, 16, 32, 64, 128, &#8230;&#8203;).If not, it will be rounded up to the next larger binary power internally.
+The search buffer occupies resources in the working memory of approx. 1500 bytes per block. In case there is not enough memory available to create the search buffer, a corresponding error message is generated when the controller is restarted and the search buffer is reduced to the minimum size of 8 blocks.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2_3_2_mk_nc_path_reverse_block_count"><em>2.3.2 MK_NC_PATH_REVERSE_BLOCK_COUNT</em></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>It determines the <strong>maximum number of blocks</strong>, which can be reverse interpolated in a program. These blocks are stored in the search buffer and thus reduce the depth of the look ahead function.
+The MC contains a parameter for each possible NC channel.</p>
+</div>
+<div class="paragraph">
+<p>The value in this MC may not be larger than <strong>MK_NC_LOOKAHEAD_BLOCK_COUNT-8</strong>. Otherwise, the return limit will be limited to this value and an error will be reported.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2_3_3_mk_cfg_parameter_array_size"><em>2.3.3 MK_CFG_PARAMETER_ARRAY_SIZE</em></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>It defines the <strong>total size of the parameter field in the controller</strong>; this includes the 1024 system parameters. The number of parameters in the parameter field is specified using this MC. Each parameter occupies 8 bytes in the working memory. The minimum size is 2048 parameters. The maximum size is only dependent on the memory configuration of the controller.</p>
+</div>
+</div>
+</div>

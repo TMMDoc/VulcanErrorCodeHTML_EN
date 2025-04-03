@@ -1,0 +1,459 @@
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_2_2_1_mk_cfg_interpolation_cycle_time"><em>2.2.1 MK_CFG_INTERPOLATION_CYCLE_TIME</em></a></li>
+<li><a href="#_2_2_2_mk_cfg_fine_interpolation_divider"><em>2.2.2 MK_CFG_FINE_INTERPOLATION_DIVIDER</em></a></li>
+<li><a href="#_2_2_3_mk_cfg_handwheel_filter_time"><em>2.2.3 MK_CFG_HANDWHEEL_FILTER_TIME</em></a></li>
+<li><a href="#_2_2_4_mk_path_velocity"><em>2.2.4 MK_PATH_VELOCITY</em></a></li>
+<li><a href="#_2_2_5_mk_path_acceleration"><em>2.2.5 MK_PATH_ACCELERATION</em></a></li>
+<li><a href="#_2_2_6_mk_path_deceleration"><em>2.2.6 MK_PATH_DECELERATION</em></a></li>
+<li><a href="#_2_2_7_mk_path_ramp_time"><em>2.2.7 MK_PATH_RAMP_TIME</em></a></li>
+<li><a href="#_2_2_8_mk_cfg_position_tolerance_mm"><em>2.2.8 MK_CFG_POSITION_TOLERANCE_MM</em></a></li>
+<li><a href="#_2_2_9_mk_cfg_position_tolerance_degree"><em>2.2.9 MK_CFG_POSITION_TOLERANCE_DEGREE</em></a></li>
+<li><a href="#_2_2_10_mk_cfg_quickstop_time"><em>2.2.10 MK_CFG_QUICKSTOP_TIME</em></a></li>
+<li><a href="#_2_2_11_mk_cfg_creep_speed_velocity"><em>2.2.11 MK_CFG_CREEP_SPEED_VELOCITY</em></a></li>
+</ul>
+</div>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>In General parameters, Select Machine settings to access Controller settings</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="img/image5.png" alt="Graphical user interface Description automatically generated" width="562" height="425"></span></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2_2_1_mk_cfg_interpolation_cycle_time"><em>2.2.1 MK_CFG_INTERPOLATION_CYCLE_TIME</em></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>It sets the <strong>internal interpolation frequency [ms] of the controller</strong>. In each such rough interpolation cycle, the controller calculates new position values for the associated axes from the programmed path.
+The shorter this cycle, the higher the density of the calculated positions. However, this also implies a higher calculating load for the controller and an increased load for drive amplifiers with digital interfaces. The EControl CNC controllers can operate with a minimum rough interpolation cycle of 1ms.
+For axes with digital setpoint value interfaces, additional limits must be observed when changing this MC, depending upon the number and type of connected drive amplifiers. Please observe the drive manufacturer&#8217;s instructions.
+For amplifiers with CAN interfaces, the limited bandwidth of the CAN bus transmission is of decisive significance. The following table shows the minimum coarse interpolation cycle and the average bus load with respect to the number of configured CAN axes and the set bit rate. This concerns CAN bus 2 through CAN bus 4 for the ENC66 and CAN bus 2 for all other controllers.
+In calculating the bus load, only the cyclical messages are taken into account and no additionally occurring asynchronous messages from MMI or SPS. The specified value can vary slightly due to differing message lengths for different amplifiers.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33%;">
+<col style="width: 13%;">
+<col style="width: 13%;">
+<col style="width: 13%;">
+<col style="width: 13%;">
+<col style="width: 15%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Number of axes per CAN-Bus</strong></th>
+<th class="tableblock halign-left valign-top"><strong>1000 kBit</strong></th>
+<th class="tableblock halign-left valign-top"><strong>800 kBit</strong></th>
+<th class="tableblock halign-left valign-top"><strong>666 kBit</strong></th>
+<th class="tableblock halign-left valign-top"><strong>500 kBit</strong></th>
+<th class="tableblock halign-left valign-top"><strong>250 kBit</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1 ms / 29%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1 ms / 36%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1 ms / 43%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2 ms / 29%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3 ms / 38%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1 ms / 52%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2 ms / 32%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2 ms / 39%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2 ms / 52%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4 ms / 52%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2 ms / 38%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2 ms / 47%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2 ms / 56%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3 ms / 50%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5 ms / 60%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2 ms / 49%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2 ms / 62%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3 ms / 49%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3 ms / 66%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6 ms / 66%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2 ms / 61%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3 ms / 51%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3 ms / 61%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4 ms / 61%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7 ms / 70%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2 ms / 73%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3 ms / 60%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3 ms / 73%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4 ms / 73%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8 ms / 73%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3 ms / 56%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3 ms / 70%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4 ms / 63%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5 ms / 67%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9 ms / 75%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3 ms / 64%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4 ms / 60%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4 ms / 72%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5 ms / 77%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10 ms / 77%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3 ms / 72%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4 ms / 67%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5 ms / 65%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6 ms / 72%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">11 ms / 78%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3 ms / 79%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4 ms / 74%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5 ms / 72%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6 ms / 79%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">12 ms / 79%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">11</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4 ms / 65%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4 ms / 82%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5 ms / 79%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7 ms / 75%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">13 ms / 80%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">12</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4 ms / 71%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5 ms / 71%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6 ms / 71%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7 ms / 81%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">14 ms / 82%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">13</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4ms / 77%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5ms / 77%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6ms / 77%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7ms / 88%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">14ms / 88%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">14</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4ms / 83%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5ms / 83%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6ms / 83%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8ms / 83%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15ms / 89%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4ms / 88%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5ms / 89%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6ms / 89%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8ms / 89%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">16ms / 89%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">16</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5ms / 76%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6ms / 79%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7ms / 81%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9ms / 84%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">17ms / 89%</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33%;">
+<col style="width: 13%;">
+<col style="width: 13%;">
+<col style="width: 13%;">
+<col style="width: 13%;">
+<col style="width: 15%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Number of axes per CAN-Bus</strong></th>
+<th class="tableblock halign-left valign-top"><strong>1000 kBit</strong></th>
+<th class="tableblock halign-left valign-top"><strong>800 kBit</strong></th>
+<th class="tableblock halign-left valign-top"><strong>666 kBit</strong></th>
+<th class="tableblock halign-left valign-top"><strong>500 kBit</strong></th>
+<th class="tableblock halign-left valign-top"><strong>250 kBit</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1 ms / 29%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1 ms / 36%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1 ms / 43%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1 ms / 57%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2 ms / 57%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1 ms / 52%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1 ms / 65%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1 ms / 78%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2 ms / 52%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3 ms / 69%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1 ms / 75%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1 ms / 94%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2 ms / 56%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2 ms / 75%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4 ms / 75%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2 ms / 49%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2 ms / 62%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2 ms / 74%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3 ms / 66%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5 ms / 79%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2 ms / 61%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2 ms / 76%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2 ms / 91%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3 ms / 81%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6 ms / 81%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2 ms / 73%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2 ms / 91%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3 ms / 73%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4 ms / 73%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7 ms / 83%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2 ms / 84%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3 ms / 70%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3 ms / 84%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4 ms / 84%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8 ms / 84%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2 ms / 96%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3 ms / 80%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3 ms / 96%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4 ms / 96%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8 ms / 96%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3 ms / 72%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3 ms / 90%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4 ms / 81%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5 ms / 86%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9 ms / 96%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3 ms / 79%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4 ms / 74%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4 ms / 89%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5 ms / 95%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10 ms / 95%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">11</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3 ms / 87%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4 ms / 82%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5 ms / 79%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6 ms / 87%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">11 ms / 95%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">12</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3 ms / 95%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4 ms / 89%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5 ms / 86%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6 ms / 95%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">12 ms / 95%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">13</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4ms / 77%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4ms / 96%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5ms / 92%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7ms / 88%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">13ms / 95%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">14</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4ms / 83%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5ms / 83%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6ms / 83%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7ms / 94%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">14ms / 94%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4ms / 88%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5ms / 89%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6ms / 89%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8ms / 89%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15ms / 94%</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">16</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4ms / 94%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5ms / 94%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6ms / 94%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8ms / 94%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">16ms / 94%</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>If it is ensured that no asynchronous messages are transmitted from MMI or SPS in operational mode, the available transmission bandwidth can be better utilized, see the following table (without liability):</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2_2_2_mk_cfg_fine_interpolation_divider"><em>2.2.2 MK_CFG_FINE_INTERPOLATION_DIVIDER</em></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>It sets the <strong>number of fine interpolation cycles (FIT) per coarse interpolation cycle (GIT)</strong>, and defines the duration of a position regulation cycle for axes with analog interface.
+For axes with analog interfaces (MK_DRV_ANALOG_AXES), in each fine interpolation cycle, the actual positions of the axes are sampled, the difference to the set position (trailing distance) is determined and new angular velocity control variables are calculated.
+For axes with digital interfaces (MK_DRV_CAN_AXES), the set and actual value transfer is effected independently of MK_CFG_FINE_INTERPOLATION_DIVIDER, once per coarse interpolation cycle.
+The value should not be less than the entered value for MK_CFG_INTERPOLATION_CYCLE_TIME and MK_CFG_FINE_INTERPOLATION_DIVIDER. Otherwise, audible impairment of movement characteristics and position regulation can result.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2_2_3_mk_cfg_handwheel_filter_time"><em>2.2.3 MK_CFG_HANDWHEEL_FILTER_TIME</em></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 90%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Value</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Meaning</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Handwheel filter deactivated (default)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">100</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">100ms filter time constant, corresponding to a limiting frequency of 10Hz</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">250</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">250ms filter time constant, corresponding to a limiting frequency of 4Hz</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>It is an <strong>filter time constant [ms] for the hand wheel function</strong>. It can be used to smooth the hand wheel speed specification, in order to make movement via the hand wheel more gentle. This is normally only necessary for high handwheel evaluation factors and low handwheel resolution; e.g. evaluation factor of 100 and one increment per notch of the handwheel.
+Any arbitrary value between 0 and 500 ms can be set.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2_2_4_mk_path_velocity"><em>2.2.4 MK_PATH_VELOCITY</em></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>It defines the <strong>maximum speed [m/min] in path operation</strong>. This can be larger than the maximum speed of the individual axes, if the resulting speed of the involved axes is smaller or equal to MK_AXIS_VELOCITY.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2_2_5_mk_path_acceleration"><em>2.2.5 MK_PATH_ACCELERATION</em></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>It define the <strong>maximum permissible acceleration ramp [m/s2] in path operation</strong>. The brake ramps are additionally limited, dependent upon the involved axes, so that the resulting ramps of the individual axes do not exceed the values of MK_AXIS_ACCELERATION.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2_2_6_mk_path_deceleration"><em>2.2.6 MK_PATH_DECELERATION</em></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>It defines the <strong>maximum permissible brake ramp [m/s2] in path operation</strong>. The brake ramps are additionally limited, dependent upon the involved axes, so that the resulting ramps of the individual axes do not exceed the value of MK_AXIS_DECELERATION.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2_2_7_mk_path_ramp_time"><em>2.2.7 MK_PATH_RAMP_TIME</em></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>It is the <strong>time in milliseconds</strong> in which the ramps specified in MK_PATH_ACCELERATION and MK_PATH_DECELERATION should be reached. This MC is for <strong>setting of acceleration and braking ramps on the path</strong>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2_2_8_mk_cfg_position_tolerance_mm"><em>2.2.8 MK_CFG_POSITION_TOLERANCE_MM</em></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>It is used for the <strong>tolerance observation [mm]</strong> in the entry of translational positions. At present, this is only used in circle programming and determines the required programming accuracy for the circle radius and center point.
+In the interpretation of a circle the controller always reports an error if the programmed circle radius is smaller than this MC, or the value of the difference between the initial radius and the target radius is greater than this MC. Here, the initial radius is the distance between the programmed center point and the starting point and the final radius, the distance between the target point and the programmed center point of the circle.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2_2_9_mk_cfg_position_tolerance_degree"><em>2.2.9 MK_CFG_POSITION_TOLERANCE_DEGREE</em></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>It is used for the <strong>tolerance observation [degree]</strong> in the entry of rotated positions. It only influences the programming of direction-dependent Modulo 360° axes and determines whether the programmed movement is executed or suppressed.</p>
+</div>
+<div class="paragraph">
+<p><strong>Example:</strong></p>
+</div>
+<div class="paragraph">
+<p>A rotation axis should be positioned to +90°, where the <strong>sign determines the direction</strong>. Depending upon whether the axis was previously at 89.5 or at 90.5, either a movement of one-half degree or of 359.5 degrees must now be executed.
+Here, MK_CFG_POSITION_TOLERANCE_DEGREE intervenes by suppressing the movement for paths exceeding 360° in the absolute measurement system.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2_2_10_mk_cfg_quickstop_time"><em>2.2.10 MK_CFG_QUICKSTOP_TIME</em></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>It defines the maximum brake time [ms] for a quick stop reaction of the interpolator, which is triggered with the signals DB1_SPS2NC_SOFORTHALT_BIT or D1_000_2_IMMEDIATE_STOP_BIT. The quick stop reaction affects all path interpolations for all axes that are moved modal with the exception of spindles and axes that are coupled with G184.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2_2_11_mk_cfg_creep_speed_velocity"><em>2.2.11 MK_CFG_CREEP_SPEED_VELOCITY</em></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The movement speed in path operation is limited to this value (instead of <strong>MK_PATH_VELOCITY</strong>), if the PLC sets the variable D1_014_1_CREEP_SPEED_B to 1.</p>
+</div>
+</div>
+</div>

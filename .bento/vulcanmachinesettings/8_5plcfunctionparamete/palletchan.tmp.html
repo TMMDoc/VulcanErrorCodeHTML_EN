@@ -1,0 +1,43 @@
+<div class="paragraph">
+<p>In PLC options, Select function parameters to access pallet changer configuration.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="img/image32.png" alt="Graphical user interface Description automatically generated" width="601" height="482"></span></p>
+</div>
+<div class="paragraph">
+<p><em>5.6.1 Pallet</em>
+- Select the type of pallet used in the machine
+No Pallet – Pallet functions are disabled in the PLC.
+Single Pallet – Only one pallet in the machine
+Double Pallet – Two pallets in the machine
+<em>5.6.2 Pallet Lock</em>
+- Enables the Pallet Lock function in the PLC.
+If the Pallet has the locking system to ensure its position and to avoid the shaking of Pallet due to axes motions, enabling it will check the feedback of lock position in the PLC. Also make sure the lock is released before the start of Forward / Reverse motion of the Pallet.
+<em>5.6.3 Shuttle</em>
+- Defines the type of shuttle system used in the Pallet and following are the options available:</p>
+</div>
+<div class="paragraph">
+<p><strong><em>No Shuttle</em></strong> – No Pallet motion.</p>
+</div>
+<div class="paragraph">
+<p><strong><em>1 level shuttle</em></strong> – Pallet moves forward &amp; reverse, whereas the cutting height remains the same.</p>
+</div>
+<div class="paragraph">
+<p><strong><em>2 level shuttle, single drive</em></strong> – There are 2 pallets with single drive such that a forward motion will bring the Top pallet to the cutting position and the reverse motion will bring the Bottom pallet to the cutting position with a difference in cutting height. Hence according to the Top/Bottom pallet, the Z- axis negative limit is dynamically updated in the PLC with the value mentioned in the Technology parameter.</p>
+</div>
+<div class="paragraph">
+<p><strong><em>2 level shuttle, double drive</em></strong> – There are 2 pallets with individual drive for each pallet, with difference in cutting height. Hence according to the Top/Bottom pallet, the Z-axis negative limit is dynamically updated in the PLC with the value mentioned in the Technology parameter.
+<em>5.6.4 Up Down Motion</em>
+- Defines the type of drive system used for Up/Down motion in the Pallet.
+No Up/Down motion
+Hydraulic system
+Induction motor
+Servo motor
+According to the type of drive system, the respective functions are activated in the PLC.
+<em>5.6.4 Forward Reverse Motion</em>
+- Defines the type of drive system used for Forward/Reverse motion in the Pallet.
+No For/Rev motion
+Induction motor
+Servo motor
+According to the type of drive system, the respective functions are activated in the PLC.</p>
+</div>

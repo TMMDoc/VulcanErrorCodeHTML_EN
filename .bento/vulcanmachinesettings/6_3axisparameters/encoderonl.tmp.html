@@ -1,0 +1,113 @@
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_3_2_1_mk_axis_encoder_fault_detect_us"><em>3.2.1 MK_AXIS_ENCODER_FAULT_DETECT_US</em></a></li>
+<li><a href="#_3_2_2_mk_axis_encoder_monitoring_ua0"><em>3.2.2 MK_AXIS_ENCODER_MONITORING_UA0</em></a></li>
+<li><a href="#_3_2_3_mk_axis_encoder_monitoring_ua1_ua2"><em>3.2.3 MK_AXIS_ENCODER_MONITORING_UA1_UA2</em></a></li>
+</ul>
+</div>
+<div class="sect1">
+<h2 id="_3_2_1_mk_axis_encoder_fault_detect_us"><em>3.2.1 MK_AXIS_ENCODER_FAULT_DETECT_US</em></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Activates the monitoring of the encoder signal "position encoder fault" (MK_AXIS_ENCODER_FAULT_DETECT_US) for axes with analog setpoint value interface. If the encoder does not provide the US signal, the monitoring of this signal needs not be activated. Generally, only the plausibility of the differential level of the signals is monitored.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16%;">
+<col style="width: 84%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Value</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Meaning</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Monitoring switched off (default)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Monitoring switched on</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Monitoring switched on; neglect single error</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_3_2_2_mk_axis_encoder_monitoring_ua0"><em>3.2.2 MK_AXIS_ENCODER_MONITORING_UA0</em></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16%;">
+<col style="width: 84%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Value</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Meaning</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Monitoring switched off (default)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Monitoring switched on</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Monitoring switched on; neglect single error</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Activates the monitoring of the zero impulse (MK_AXIS_ENCODER_MONITORING_UA0) for axes with analog setpoint value interface. If the encoder does not provide the UA0 signal, the monitoring of this signal needs not be activated. Generally, only the plausibility of the differential level of the signals is monitored.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_3_2_3_mk_axis_encoder_monitoring_ua1_ua2"><em>3.2.3 MK_AXIS_ENCODER_MONITORING_UA1_UA2</em></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16%;">
+<col style="width: 84%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Value</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Meaning</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Monitoring switched off (default)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Monitoring switched on</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Monitoring switched on; neglect single error</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Activates the monitoring of the encoder signals (MK_AXIS_ENCODER_MONITORING_UA1_UA2) for axes with analog setpoint value interface. Generally, only the plausibility of the differential level of the signals is monitored.</p>
+</div>
+<div class="paragraph">
+<p><strong>NOTE:</strong> The encoder signal monitoring should always be activated, at the latest when the axes are put into operation. In this way, wiring faults can be detected more quickly.</p>
+</div>
+</div>
+</div>

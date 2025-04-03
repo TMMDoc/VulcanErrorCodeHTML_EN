@@ -1,0 +1,137 @@
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_3_6_1_mk_axis_homing_velocity2"><em>3.6.1 MK_AXIS_HOMING_VELOCITY2</em></a></li>
+<li><a href="#_3_6_2_mk_axis_homing_acceleration2"><em>3.6.2 MK_AXIS_HOMING_ACCELERATION2</em></a></li>
+<li><a href="#_3_6_3_mk_axis_homing_mode"><em>3.6.3 MK_AXIS_HOMING_MODE</em></a></li>
+<li><a href="#_3_6_4_mk_axis_homing_velocity1"><em>3.6.4 MK_AXIS_HOMING_VELOCITY1</em></a></li>
+<li><a href="#_3_6_5_mk_axis_homing_acceleration1"><em>3.6.5 MK_AXIS_HOMING_ACCELERATION1</em></a></li>
+<li><a href="#_3_6_6_mk_axis_homing_offset"><em>3.6.6 MK_AXIS_HOMING_OFFSET</em></a></li>
+<li><a href="#_3_6_7_mk_axis_homing_direction_and_sequence"><em>3.6.7 MK_AXIS_HOMING_DIRECTION_AND_SEQUENCE</em></a></li>
+</ul>
+</div>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Select Axis parameters and choose Referencing settings,</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="img/image16.png" alt="Graphical user interface Description automatically generated" width="558" height="485"></span></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_3_6_1_mk_axis_homing_velocity2"><em>3.6.1 MK_AXIS_HOMING_VELOCITY2</em></h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_3_6_2_mk_axis_homing_acceleration2"><em>3.6.2 MK_AXIS_HOMING_ACCELERATION2</em></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>It determines acceleration and speed in the various phases of the reference point traverse, for axes with analog interface.
+MK_AXIS_HOMING_VELOCITY2 and MK_AXIS_HOMING_ACCELERATION2 are the values for the zero impulse search.
+For axes with CAN or EtherCAT interfaces, these values must be configured directly in the drive amplifier.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_3_6_3_mk_axis_homing_mode"><em>3.6.3 MK_AXIS_HOMING_MODE</em></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>It defines the way in which the axes should be referenced, via the configured value. This MC only affects axes with analog interfaces and SERCOS axes. For CAN and EtherCAT axes, the type of reference point traverse must be configured in the drive amplifier.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 8%;">
+<col style="width: 92%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Value</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Meaning</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Normal Mode: The axis moves in the specified direction (MK_AXIS_HOMING_DIRECTION_AND_SEQUENCE), until the reference cam is recognized. The direction is then reversed. The actual value counter is set to zero after leaving the cam with the next zero impulse of the transducer (default).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As 0, but the actual value counter will be zeroed after leaving the cam.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The actual value counter is zeroed directly by the program, without movement. Only possible for axes with analog interfaces.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Zeroing via next zero impulse. For axes with analog interfaces, the direction of the zero impulse search is determined additionally by the status of the reference cam.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The spare input of the axis computer serves as an additional cam, which must be moved to first before executing a reference point traverse, according to mode 0. Only possible for axes with analog interfaces.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Reference point traverse for measurement axis. System only waits for zero impulse. The axis is not actively moved, but must be moved manually or by some other means. Only possible for axes with analog interfaces.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The actual value counter will be set directly to the value of MK_AXIS_HOMING_OFFSET without movement, so that the position 0 is displayed. Only possible for axes with analog interfaces.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As mode 0, but when the reference cam is reached, the trailing distance is zeroed. This is necessary if the reference cam is wired as a direction limiter in the drive amplifier. Only possible for axes with analog interfaces.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As mode 3, but without zero impulse (available with firmware 2.62)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">+64</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">External encoder for SERCOS. Adding 64 to the value of the selected Reftype activates „position control with external encoder“</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_3_6_4_mk_axis_homing_velocity1"><em>3.6.4 MK_AXIS_HOMING_VELOCITY1</em></h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_3_6_5_mk_axis_homing_acceleration1"><em>3.6.5 MK_AXIS_HOMING_ACCELERATION1</em></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>It determines acceleration and speed in the various phases of the reference point traverse, for axes with analog interface.
+MK_AXIS_HOMING_VELOCITY1 and MK_AXIS_HOMING_ACCELERATION1 are the values for the cam search.
+For SERCOS axes, only MK_AXIS_HOMING_VELOCITY1 and MK_AXIS_HOMING_ACCELERATION1 are effective. For axes with CAN or EtherCAT interfaces, these values must be configured directly in the drive amplifier.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_3_6_6_mk_axis_homing_offset"><em>3.6.6 MK_AXIS_HOMING_OFFSET</em></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>It is the offset of the mechanical zero point of the machine with respect to the zero point of the position measuring system. The units for linear axes are millimetres and for rotation axes, degrees.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_3_6_7_mk_axis_homing_direction_and_sequence"><em>3.6.7 MK_AXIS_HOMING_DIRECTION_AND_SEQUENCE</em></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>It defines the direction and sequence in which the axes execute a reference point traverse. The direction in which the axis executes its first movement is determined by the sign of the entered value. The sequence in which the axis with common referencing executes the reference point traverse, is determined by the value of the entry.
+If an axis is not to be involved in an automatic reference point traverse, a 0 or –128 must be entered for this axis. The value –128 represents a direction reversal, where manual reference point means the axis.</p>
+</div>
+<div class="paragraph">
+<p><strong>Example:</strong> The machine has an X, Y, Z and a C axis, where it must be ensured that the Z axis is moved out of the working space before the X and Y axes are moved (MK_CFG_AXIS_LETTER_ASSIGNMENT with default values). The Y axis should search for the cam in the negative direction. The C axis should not be involved in the automatic reference point traverse.
+MK_AXIS_HOMING_DIRECTION_AND_SEQUENCE 2, -2, 1, 0;</p>
+</div>
+</div>
+</div>
